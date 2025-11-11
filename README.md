@@ -21,3 +21,16 @@ Outcome: with the increased epsilon_decay_rate = 0.0005, epsilon reaches zero mu
 - 50.000 episodes was overkill though
 - I tried with 10.000 episodes but the model never reached the reward due to the size of the map
 - The ideal is around 25.000 for training in the 8x8 map with q learning
+
+# Q-learning w/ Frozen Lake 4x4 environment Slippery OFF/ON
+
+4x4 1000 episodes with slipper off
+<img width="640" height="480" alt="frozen_lake_dql" src="https://github.com/user-attachments/assets/3519c34b-0ecf-48c3-9e71-39041dad74a4" />
+- only reaches 80percent episode success but is exepected w/ the number of training episodes
+
+4x4 10000 episodes with slippery on
+<img width="640" height="480" alt="frozen_lake_dql_4x4_slippery" src="https://github.com/user-attachments/assets/02a24853-0a0d-4e32-9a49-38d39aa793ec" />
+- 10.000 episodes overkill i found that 3000 episode is the most effective however due to the slippery parameters randomness the episode success never reaches more than 60 percent
+- the answer is not more training episodes though
+
+  TODO Reinforce + PPO
