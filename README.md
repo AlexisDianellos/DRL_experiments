@@ -22,7 +22,7 @@ Outcome: with the increased epsilon_decay_rate = 0.0005, epsilon reaches zero mu
 - I tried with 10.000 episodes but the model never reached the reward due to the size of the map
 - The ideal is around 25.000 for training in the 8x8 map with q learning
 
-# Q-learning w/ Frozen Lake 4x4 environment Slippery OFF/ON
+# DEEP-Q-learning w/ Frozen Lake 4x4 environment Slippery OFF/ON
 
 4x4 1000 episodes with slipper off
 <img width="640" height="480" alt="frozen_lake_dql" src="https://github.com/user-attachments/assets/3519c34b-0ecf-48c3-9e71-39041dad74a4" />
@@ -33,4 +33,12 @@ Outcome: with the increased epsilon_decay_rate = 0.0005, epsilon reaches zero mu
 - 10.000 episodes overkill i found that 3000 episode is the most effective however due to the slippery parameters randomness the episode success never reaches more than 60 percent
 - the answer is not more training episodes though
 
-  TODO Reinforce + PPO
+# PPO w/ Cartpole-v1
+<img width="850" height="470" alt="ppo_crapole" src="https://github.com/user-attachments/assets/f01ce3ed-cc2c-4617-8453-6655b8b19c84" />
+https://github.com/user-attachments/assets/eaa8501b-f1de-462e-a58d-96fa0e4c0a35
+- I used 32 parallel enviroments / gae for advantage estimation / single NN architecture with 2 heads
+- played around a lot with gamma but found a gamma=0.99 and gae_lambda=0.95 to be best
+- I was very surprised to see how quickly it was able to reach the max 500 reward on cartpole (only about 5 updates in)
+- The drops in reward unsure the implementation is actually correct -> still explores despite reach max reward
+- Next im trying a continuous action space like pendulum - discrete action space envs like cartpole arent complex enough for ppo w/gae
+
