@@ -59,6 +59,12 @@ Outcome: with the increased epsilon_decay_rate = 0.0005, epsilon reaches zero mu
   Its clear the model was able to achieve perfect performance
 - Video : https://github.com/user-attachments/assets/2b303bd8-6c1d-49c2-9128-de3ce9f20c9c
 
+# PPO (Generalised Advantage Estimation) w/ Pendulum-v1 (Discrete Environment)
+<img width="1189" height="690" alt="ppo_eval_50ep_returns_plot" src="https://github.com/user-attachments/assets/932e8356-3dca-4288-978c-058cffb5dedd" />
+- I got avg return of 720, however: car extremely fast, crazy tricks for maximizing performance, including going off track and spinning around itself and even going in the wrong direction
+https://github.com/user-attachments/assets/19f62fbd-28ab-429c-abca-6a61ec24a6b8
+- It seemed a very good use case to implement PPO-Lag, with a cost for going off road and a speed limit
+
 # TODO:
 - Dual Gradient Descent
 - PPO La grandian Paper enviroment implementation
