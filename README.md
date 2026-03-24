@@ -59,13 +59,18 @@ Outcome: with the increased epsilon_decay_rate = 0.0005, epsilon reaches zero mu
   Its clear the model was able to achieve perfect performance
 - Video : https://github.com/user-attachments/assets/2b303bd8-6c1d-49c2-9128-de3ce9f20c9c
 
-# PPO (Generalised Advantage Estimation) w/ Pendulum-v1 (Discrete Environment)
+# PPO (Generalised Advantage Estimation) w/ CarRacing-v3 (Continuous Environment)
 <img width="1189" height="690" alt="ppo_eval_50ep_returns_plot" src="https://github.com/user-attachments/assets/932e8356-3dca-4288-978c-058cffb5dedd" />
 - I got avg return of 720, however: car extremely fast, crazy tricks for maximizing performance, including going off track and spinning around itself and even going in the wrong direction <br/>
 https://github.com/user-attachments/assets/19f62fbd-28ab-429c-abca-6a61ec24a6b8 <br/>
-- It seemed a very good use case to implement PPO-Lag, but first to improve performance I: 4-Frame Stacking + convert to continuous env + ent_conef=0.005 + num_updates=3000 + lr 1e-4
+- For improving performance I decided: 4-Frame Stacking (car sees ahead) + convert to continuous env (a lot more natural and flexible for the car) + ent_conef=0.005 (explores more early on) + num_updates=3000 (+1000 episodes of training policy)+ lr 1e-4 (previously 2e-4) more stable training and ive found it to be better for continuous environments
+SO the results:
+<img width="1189" height="790" alt="ppo_eval_50ep" src="https://github.com/user-attachments/assets/6d10f0d5-5bc0-4060-86f2-08f52d5e55dc" />
+Very good the policy have avg return 880, so its mastered it
+
+# PPO (Generalised Advantage Estimation) La grandian w/ CarRacing-v3 (Continuous Environment)
+- car cant go below a certain speed limit + cost for going out of road
 
 # TODO:
-- Dual Gradient Descent
-- PPO La grandian Paper enviroment implementation
+- PPO La grandian on carRacing and compare with ppo
 
